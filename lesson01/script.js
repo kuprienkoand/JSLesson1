@@ -1,9 +1,9 @@
-let money = 10;
-let deposit = 20;
-let income;
-let addExpenses;
-let mission;
-let period;
+let money = 10, 
+    deposit = 20,
+    income,
+    addExpenses,
+    mission,
+    period;
 console.log('money', money);
 console.log('deposit', deposit);
 console.log('sum',deposit + money);
