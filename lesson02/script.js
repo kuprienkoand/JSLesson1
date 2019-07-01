@@ -7,7 +7,7 @@ let money = 500, // Доход за месяц
 
 console.log('money =', typeof money);
 console.log('income =', typeof income);
-console.log('deposit =', typeof Boolean(500));
+console.log('deposit =', typeof deposit);
 
 console.log('длина строки income =', income.length);
 
