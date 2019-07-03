@@ -9,12 +9,12 @@ console.log('2) addExpenses (возможные расходы):', addExpenses.s
 let deposit  = confirm('Есть ли у вас депозит в банке?');
 console.log('3) deposit (Есть ли у вас депозит в банке?):', typeof deposit);
 
-let question = +prompt('Какие обязательные ежемесячные расходы у вас есть?'),
+let question = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
     question2 = +prompt('Во сколько это обойдется?'),
-    question3 = +prompt('Какие обязательные ежемесячные расходы у вас есть?'),
+    question3 = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
     question4 = +prompt('Во сколько это обойдется?');
 
-let budgetMonth = (money - question);
+let budgetMonth = money - (question2 + question4);
 console.log('6) доход за месяц:', budgetMonth);
 
 let mission = (question2 / budgetMonth);
