@@ -17,7 +17,7 @@ let question = prompt('Какие обязательные ежемесячны�
 let budgetMonth = money - (question2 + question4);
 console.log('6) доход за месяц:', budgetMonth);
 
-let mission = (question2 / budgetMonth);
+let mission = budgetMonth / (question2 + question4);
 console.log('7) за сколько месяцев будет достигнута цель:', parseInt(mission), 'месяцев');
 
 
