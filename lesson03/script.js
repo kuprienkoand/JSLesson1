@@ -4,7 +4,7 @@ let money = +prompt('Ваш месячный доход?');
 console.log('1) money:', typeof money);
 
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-console.log('2) addExpenses (возможные расходы):', addExpenses.split(', '), typeof addExpenses);
+console.log('2) addExpenses (возможные расходы):', addExpenses.split(' '), typeof addExpenses);
 
 let deposit  = confirm('Есть ли у вас депозит в банке?');
 console.log('3) deposit (Есть ли у вас депозит в банке?):', typeof deposit);
@@ -17,8 +17,9 @@ let question = prompt('Какие обязательные ежемесячны�
 let budgetMonth = money - (question2 + question4);
 console.log('6) доход за месяц:', budgetMonth);
 
-let mission = budgetMonth - (question2 + question4);
-console.log('7) за сколько месяцев будет достигнута цель:', parseInt(mission), 'месяцев');
+let mission = +prompt('Цель: сколько Вы хотите заработать?'),
+    period = mission / budgetMonth;
+console.log('7) за сколько месяцев будет достигнута цель:', parseInt(period), 'месяцев');
 
 
 let budgetDay = (budgetMonth / 30);
