@@ -23,11 +23,18 @@ switch (langCase) {
 
 /* Условия через многомерный массив */
 
-let langArr = prompt('Укажите язык ru или en');
+/* let langArr = prompt('Укажите язык ru или en');
 console.log({
   'ru': ['Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресение'],
   'en': ['Monday, Tuesday, Thursday, Friday, Saturday, Sunday']
-});
+}); */
+
+const langArr = prompt('Укажите язык ru или en');
+const symbols = {
+  'ru': ['Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресение'],
+  'en': ['Monday, Tuesday, Thursday, Friday, Saturday, Sunday'],
+};
+console.log('Через массив', symbols[langArr]);
 
 
 let namePerson = prompt('Укажите имя Артем или Максим'),
