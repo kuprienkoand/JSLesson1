@@ -1,10 +1,8 @@
 'use strict';
 
-let money = +prompt('Ваш месячный доход?');
-
-let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-
-let deposit = confirm('Есть ли у вас депозит в банке?');
+let money = +prompt('Ваш месячный доход?'),
+    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
+    deposit = confirm('Есть ли у вас депозит в банке?');
 
 let showTypeof = function (item) {
   console.log(item, typeof item);
@@ -15,35 +13,31 @@ showTypeof(addExpenses);
 showTypeof(deposit);
 
 let question = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
-  question2 = +prompt('Во сколько это обойдется?'),
-  question3 = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
-  question4 = +prompt('Во сколько это обойдется?');
+    question2 = +prompt('Во сколько это обойдется?'),
+    question3 = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
+    question4 = +prompt('Во сколько это обойдется?');
 
 function getExpensesMonth() {
   return question2 + question4;
 };
-/* console.log('getExpensesMonth(): ', getExpensesMonth()); */
 
 let budgetMonth = money - (question2 + question4);
-/* console.log('6) доход за месяц:', budgetMonth); */
 
-let accumulatedMonth = function getAccumulatedMonth() {
-  console.log('Накопления за месяц (accumulatedMonth): ', budgetMonth);
+let accumulatedMonth;
+function getAccumulatedMonth() {
+  accumulatedMonth = money - (question2 + question4);
+  return accumulatedMonth;
 };
-accumulatedMonth();
 
 let mission = +prompt('Цель: сколько Вы хотите заработать?'),
   period = mission / budgetMonth;
-/* console.log('7) за сколько месяцев будет достигнута цель:', parseInt(period), 'месяцев'); */
 
-let getTargetMonth1 = function getTargetMonth() {
+function getTargetMonth() {
   return mission / accumulatedMonth;
-};
-console.log('Cрок достижения цели', Math.floor(getTargetMonth1), 'месяцев');
-
+}
+console.log('Cрок достижения цели', Math.floor(getTargetMonth()), 'месяцев');
 
 let budgetDay = budgetMonth / 30;
-/* console.log('8) budgetDay:', Math.floor(budgetDay)); */
 
 function getStatusIncome() {
   let n = budgetDay;
