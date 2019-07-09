@@ -2,40 +2,36 @@
 
 let money = +prompt('Ваш месячный доход?'),
     addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую'),
-    deposit = confirm('Есть ли у вас депозит в банке?');
-
-let showTypeof = function (item) {
-  console.log(item, typeof item);
-};
-
-showTypeof(money);
-showTypeof(addExpenses);
-showTypeof(deposit);
-
-let question = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
+    deposit = confirm('Есть ли у вас депозит в банке?'),
+    question = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
     question2 = +prompt('Во сколько это обойдется?'),
     question3 = prompt('Какие обязательные ежемесячные расходы у вас есть?'),
     question4 = +prompt('Во сколько это обойдется?');
 
+let showTypeof = function (item) {
+  console.log(item, typeof item);
+};
+showTypeof(money);
+showTypeof(addExpenses);
+showTypeof(deposit);
+
 function getExpensesMonth() {
   return question2 + question4;
-};
+}
 
 let budgetMonth = money - (question2 + question4);
 
-let accumulatedMonth;
+let accumulatedMonth = getAccumulatedMonth();
 function getAccumulatedMonth() {
-  accumulatedMonth = money - (question2 + question4);
-  return accumulatedMonth;
-};
+  return money - getExpensesMonth();
+}
 
 let mission = +prompt('Цель: сколько Вы хотите заработать?'),
-  period = mission / budgetMonth;
+    period = mission / budgetMonth;
 
 function getTargetMonth() {
   return mission / accumulatedMonth;
 }
-console.log('Cрок достижения цели', Math.floor(getTargetMonth()), 'месяцев');
 
 let budgetDay = budgetMonth / 30;
 
@@ -51,4 +47,6 @@ function getStatusIncome() {
     return ('Что то пошло не так)))');
   }
 }
+
 console.log('getStatusIncome(): ', getStatusIncome());
+console.log('Cрок достижения цели', Math.ceil(getTargetMonth()), 'месяцев');
