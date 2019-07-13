@@ -6,20 +6,12 @@ let money,
     question,
     question3;
 
-let showTypeof = function (item) {
-  console.log(item, typeof item);
-}
-showTypeof(money);
-showTypeof(addExpenses);
-showTypeof(deposit);
-
 /* валидация переменной money */
 
 let start = function(){
 
   do{
     money = +prompt('Ваш месячный доход?', 5000);
-    console.log(money);
   }
   while (isNaN(money) || money == '' || money == null)
 }
@@ -38,7 +30,6 @@ function getExpensesMonth() {
 
     do{
       sum += +prompt('Во сколько это обойдется?', 200);
-      console.log(sum);
     }
     while (isNaN(sum) || sum == '' || sum == null)
   }
@@ -85,6 +76,13 @@ function getStatusIncome() {
     return ('Что то пошло не так)))');
   }
 }
+
+let showTypeof = function (item) {
+  console.log(item, typeof item);
+}
+showTypeof(money);
+showTypeof(addExpenses);
+showTypeof(deposit);
 
 console.log('Уровень дохода: ', getStatusIncome());
 console.log('Будет ли цель достигнута? ', queTargetMonth());
