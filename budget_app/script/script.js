@@ -1,12 +1,15 @@
 'use strict';
 
 let myBtn = document.getElementsByTagName('button'),
-  myRes1 = document.getElementsByClassName('result-budget_day'),
-  myRes2 = document.getElementsByClassName('result-expenses_month'),
-  myRes3 = document.getElementsByClassName('result-additional_income'),
-  myRes4 = document.getElementsByClassName('result-additional_expenses'),
-  myRes5 = document.getElementsByClassName('result-income_period'),
-  myRes6 = document.getElementsByClassName('result-target_month'),
+  myBtnZero = myBtn[0],
+  myBtnOne = myBtn[1],
+  resBud = document.querySelector('.budget_month-value'),
+  myRes1 = document.getElementsByClassName('budget_day-value'),
+  myRes2 = document.getElementsByClassName('expenses_month-value'),
+  myRes3 = document.getElementsByClassName('additional_income-value'),
+  myRes4 = document.getElementsByClassName('additional_expenses-value'),
+  myRes5 = document.getElementsByClassName('income_period-value'),
+  myRes6 = document.getElementsByClassName('target_month-value'),
   salAm = document.querySelector('.salary-amount'),
   incTitle = document.querySelector('.income-title'),
   incAm = document.querySelector('.income-amount'),
@@ -14,13 +17,12 @@ let myBtn = document.getElementsByTagName('button'),
   expAm = document.querySelector('.expenses-amount'),
   expItem = document.querySelector('.additional_expenses-item'),
   tarAm = document.querySelector('.target-amount'),
-  perSel = document.querySelector('.period-select'),
-  resBud = document.querySelector('.result-budget_month');
+  perSel = document.querySelector('.period-select');
 
 console.log('a: ', document.getElementById('start'));
 
-console.log('b: ', myBtn[0]);
-console.log(myBtn[1]);
+console.log('b: ', myBtnZero);
+console.log(myBtnOne);
 
 console.log('c: ', document.querySelector('#deposit-check'));
 
