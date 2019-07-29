@@ -261,15 +261,6 @@ let appData = {
 
     periodSelect.value = 1;
     periodAmount.innerHTML = 1;
-    
-    incomeItems = document.querySelectorAll('.income-items');
-    for (let i = 1; i < incomeItems.length; i++){
-      incomeItems[i].remove();
-    }
-    expensesItems = document.querySelectorAll('.expenses-items');
-    for (let i = 1; i < expensesItems.length; i++){
-      expensesItems[i].remove();
-    };
 
     incomePlus.style.display = 'block';
     expensesPlus.style.display = 'block';
