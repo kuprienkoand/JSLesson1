@@ -77,7 +77,7 @@ let appData = {
     inputTypeText = document.querySelectorAll('.data input[type=text]');
     inputTypeText.forEach(function (item) {
         item.disabled = true;
-      }),
+      });
       btnPlus.forEach(function (item) {
         item.disabled = true;
       });
@@ -265,7 +265,7 @@ let appData = {
     inputTypeText.forEach(function (item) {
       item.disabled = false;
       item.value = '';
-    }),
+    });
       btnPlus.forEach(function (item) {
         item.disabled = false;
       });
