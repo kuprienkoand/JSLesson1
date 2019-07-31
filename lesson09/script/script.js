@@ -73,16 +73,29 @@ let appData = {
     this.cancelBlock();
     
   },
-  cancelBlock: function(){
-    inputTypeText.forEach(function(item){
-      item.disabled = true;
-    }),
-    btnPlus.forEach(function(item){
-      item.disabled = true;
-    });
+  cancelBlock: function () {
+    inputTypeText = document.querySelectorAll('.data input[type=text]');
+    inputTypeText.forEach(function (item) {
+        item.disabled = true;
+      }),
+      btnPlus.forEach(function (item) {
+        item.disabled = true;
+      });
     start.style.display = 'none';
     cancel.style.display = 'block';
   },
+
+  //новые поля не блокируются
+  /* cancelBlock: function () {
+    inputTypeText.forEach(function (item) {
+        item.disabled = true;
+      }),
+      btnPlus.forEach(function (item) {
+        item.disabled = true;
+      });
+    start.style.display = 'none';
+    cancel.style.display = 'block';
+  }, */
   showResult: function(){
     budgetMonthValue.value = this.budgetMonth;
     budgetDayValue.value = Math.ceil(this.budgetDay);
@@ -95,7 +108,7 @@ let appData = {
 
     periodSelect.addEventListener('change', function(){
       incomePeriodValue.value = appData.calcPeriod();
-    })
+    });
   },
   addIncomeBlock: function(){
 
@@ -261,15 +274,6 @@ let appData = {
 
     periodSelect.value = 1;
     periodAmount.innerHTML = 1;
-    
-    incomeItems = document.querySelectorAll('.income-items');
-    for (let i = 1; i < incomeItems.length; i++){
-      incomeItems[i].remove();
-    }
-    expensesItems = document.querySelectorAll('.expenses-items');
-    for (let i = 1; i < expensesItems.length; i++){
-      expensesItems[i].remove();
-    };
 
     incomePlus.style.display = 'block';
     expensesPlus.style.display = 'block';
