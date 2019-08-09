@@ -97,7 +97,7 @@ class AppData {
     targetMonthValue.value = Math.ceil(this.getTargetMonth());
     incomePeriodValue.value = this.calcPeriod();
     
-    periodSelect.addEventListener('change', function(){
+    periodSelect.addEventListener('input', () => {
       incomePeriodValue.value = this.calcPeriod();
     });
   }
@@ -196,7 +196,7 @@ class AppData {
     }
   }
   getBudget() {
-    this.budgetMonth = this.budget + this.incomeMonth - this.expensesMonth + (this.moneyDeposit * this.percentDeposit) /12;
+    this.budgetMonth = this.budget + this.incomeMonth - this.expensesMonth + (this.moneyDeposit * this.percentDeposit) / 12;
     this.budgetDay = this.budgetMonth / 30;
   }
   getTargetMonth() {
@@ -226,6 +226,20 @@ class AppData {
     return this.budgetMonth * periodSelect.value;
   }
   reset() {
+    let incomeItems = document.querySelectorAll('.income-items'),
+      expensesItems = document.querySelectorAll('.expenses-items');
+    if (incomeItems.length === 2) {
+      incomeItems[0].parentNode.removeChild(incomeItems[1]);
+    } else if (incomeItems.length === 3) {
+      incomeItems[0].parentNode.removeChild(incomeItems[1]);
+      incomeItems[0].parentNode.removeChild(incomeItems[2]);
+    }
+    if (expensesItems.length === 2) {
+      expensesItems[0].parentNode.removeChild(expensesItems[1]);
+    } else if (expensesItems.length === 3) {
+      expensesItems[0].parentNode.removeChild(expensesItems[1]);
+      expensesItems[0].parentNode.removeChild(expensesItems[2]);
+    }
     inputTypeText.forEach((item) => {
       item.disabled = false;
       item.value = '';
@@ -238,9 +252,15 @@ class AppData {
 
     periodSelect.value = 1;
     periodAmount.innerHTML = 1;
+    depositBank.selectedIndex = 0;
 
     incomePlus.style.display = 'block';
     expensesPlus.style.display = 'block';
+    depositBank.disabled = false;
+    // depositCheck.disabled = false;
+    depositCheck.checked = false;
+    depositBank.style.display = 'none';
+    depositAmount.style.display = 'none';
   }
   depositCheck() {
     if (depositCheck.checked) { // равенство на true не обязательно,  === true
@@ -282,7 +302,7 @@ class AppData {
       periodAmount.innerHTML = periodSelect.value;
     });
 
-    depositCheck.addEventListener('change', this.depositCheck);
+    depositCheck.addEventListener('change', () => this.depositCheck());
   }
 }
 
