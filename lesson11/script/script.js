@@ -250,6 +250,12 @@ class AppData {
     start.style.display = 'block';
     cancel.style.display = 'none';
 
+    let allInputs = document.querySelectorAll('input[type=text]');
+    allInputs.forEach((item) => {
+      item.value = '';
+      item.removeAttribute('disabled', 'disabled');
+    });
+
     periodSelect.value = 1;
     periodAmount.innerHTML = 1;
     depositBank.selectedIndex = 0;
