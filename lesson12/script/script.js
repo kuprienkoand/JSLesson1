@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', function(){
   function countTimer(deadline){ // deadline - время до которого таймер будет отсчитывать
     let timerHours = document.querySelector('#timer-hours'), // получаем элемент со страницы
       timerMinutes = document.querySelector('#timer-minutes'),
-      timerSeconds = document.querySelector('#timer-seconds');
+      timerSeconds = document.querySelector('#timer-seconds'),
+      timerNumbers = document.querySelector('.timer-numbers');
 
 
     function getTimeRemaining(){
@@ -17,16 +18,13 @@ window.addEventListener('DOMContentLoaded', function(){
         hours = Math.floor(timeRemaining / 60 / 60) % 24,
         day = Math.floor(timeRemaining / 60 / 60 / 24);
 
-        if (seconds < 10) {
+        if (seconds < 10 ) {
           seconds = '0' + seconds;
-        }
-        if (minutes < 10) {
+        } else if (minutes < 10 ) {
           minutes = '0' + minutes;
-        }
-        if (hours < 10) {
+        } else if (hours <  10 ) {
           hours = '0' + hours;
         }
-
         return {timeRemaining, hours, minutes, seconds};
     }
 
@@ -39,10 +37,18 @@ window.addEventListener('DOMContentLoaded', function(){
 
       if(timer.timeRemaining > 0){
         setTimeout(updateClock, 1000);
+      } 
+      else if (timer.timeRemaining <= 0) {
+          timerHours.textContent = '00';
+          timerMinutes.textContent = '00';
+          timerSeconds.textContent = '00';
+          timerNumbers.style.color = 'red';
+
+          setInterval(updateClock, 1000);
+        }
       }
-    }
     
-    setInterval(updateClock, 1000);
+    updateClock();
     
   }
 
