@@ -20,9 +20,11 @@ window.addEventListener('DOMContentLoaded', function(){
 
         if (seconds < 10 ) {
           seconds = '0' + seconds;
-        } else if (minutes < 10 ) {
+        }
+        if (minutes < 10 ) {
           minutes = '0' + minutes;
-        } else if (hours <  10 ) {
+        } 
+        if (hours <  10 ) {
           hours = '0' + hours;
         }
         return {timeRemaining, hours, minutes, seconds};
@@ -39,14 +41,16 @@ window.addEventListener('DOMContentLoaded', function(){
         setTimeout(updateClock, 1000);
       } 
       else if (timer.timeRemaining <= 0) {
+          clearInterval(IdInterval);
           timerHours.textContent = '00';
           timerMinutes.textContent = '00';
           timerSeconds.textContent = '00';
           timerNumbers.style.color = 'red';
 
-          setInterval(updateClock, 1000);
+          // setInterval(updateClock, 1000);
         }
       }
+    let IdInterval = setInterval(updateClock, 1000);
     
     updateClock();
     
@@ -100,7 +104,7 @@ window.addEventListener('DOMContentLoaded', function(){
           menu.classList.remove('active-menu');
         }
       }
-    })
+    });
 
   };
   
@@ -158,7 +162,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
 
       }        
-    })
+    });
   };
 
   togglePopUp();
