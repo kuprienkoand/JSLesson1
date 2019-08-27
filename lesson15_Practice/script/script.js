@@ -349,6 +349,11 @@
 
     calcItem.forEach(item => {
       item.addEventListener('input', (event) => {
+
+        if (!event.target.matches('input')){
+          return;
+        }
+        
         event.target.value = event.target.value.replace(/\D/gi, '');
       });
     });
